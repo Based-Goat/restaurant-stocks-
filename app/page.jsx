@@ -63,11 +63,18 @@ export default function Home() {
         <>
           <h2>{mode}</h2>
 
-          <input
-            placeholder="Товар"
-            value={product}
-            onChange={(e) => setProduct(e.target.value)}
-          />
+         <input
+  list="products"
+  placeholder="Начните вводить товар..."
+  value={product}
+  onChange={(e) => setProduct(e.target.value)}
+/>
+
+<datalist id="products">
+  {products.map((item) => (
+    <option key={item} value={item} />
+  ))}
+</datalist>
 
           <br />
           <br />
