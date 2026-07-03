@@ -1,6 +1,6 @@
-import { sendData } from "../lib/api";
-"use client";
 
+"use client";
+import { sendData } from "../lib/api";
 import { useState } from "react";
 
 export default function Home() {
