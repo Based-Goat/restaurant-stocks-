@@ -17,6 +17,10 @@ export default function Home() {
 }, []);
   
   async function submit() {
+  if (!products.includes(product)) {
+  alert("Такого товара нет в базе.");
+  return;
+}
   if (!product || !amount) {
     alert("Заполните все поля");
     return;
