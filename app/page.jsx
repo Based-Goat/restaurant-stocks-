@@ -9,20 +9,32 @@ export default function Home() {
   const [amount, setAmount] = useState("");
   const [reason, setReason] = useState("Порча");
 
-  function submit() {
-    alert(
-      JSON.stringify(
-        {
-          type: mode,
-          product,
-          amount,
-          reason: mode === "Списание" ? reason : ""
-        },
-        null,
-        2
-      )
-    );
+  async function submit() {
+  if (!product || !amount) {
+    alert("Заполните все поля");
+    return;
   }
+
+  try {
+    const result = await sendData({
+      type: mode,
+      product,
+      amount,
+      reason: mode === "Списание" ? reason : "",
+      date: new Date().toISOString(),
+    });
+
+    alert(result.message || "Успешно");
+
+    setProduct("");
+    setAmount("");
+    setReason("Порча");
+    setMode("");
+
+  } catch (error) {
+    alert("Ошибка отправки");
+  }
+}
 
   return (
     <main style={{ padding: 20, fontFamily: "Arial" }}>
