@@ -9,6 +9,13 @@ export default function Home() {
   const [amount, setAmount] = useState("");
   const [reason, setReason] = useState("Порча");
   const [products, setProducts] = useState([]);
+  useEffect(() => {
+  fetch("https://script.google.com/macros/s/AKfycbyKRbhrdqYlY9-kY1HMhP5M9F687i4ye52HHXL7ipq3Uqj168xJsEjtKItvFNpH12rXlA/exec?action=products")
+    .then((res) => res.json())
+    .then((data) => setProducts(data))
+    .catch(console.error);
+}, []);
+  
   async function submit() {
   if (!product || !amount) {
     alert("Заполните все поля");
