@@ -1,5 +1,6 @@
-
 "use client";
+
+import { useState } from "react";
 import { sendData } from "../lib/api";
 
 export default function Home() {
