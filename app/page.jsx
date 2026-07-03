@@ -8,7 +8,7 @@ export default function Home() {
   const [product, setProduct] = useState("");
   const [amount, setAmount] = useState("");
   const [reason, setReason] = useState("Порча");
-
+  const [products, setProducts] = useState([]);
   async function submit() {
   if (!product || !amount) {
     alert("Заполните все поля");
