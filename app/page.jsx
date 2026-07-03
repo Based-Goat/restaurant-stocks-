@@ -31,9 +31,10 @@ export default function Home() {
     setReason("Порча");
     setMode("");
 
-  } catch (error) {
-    alert("Ошибка отправки");
   }
+  catch (error) {
+  alert(error.message);
+}
 }
 
   return (
